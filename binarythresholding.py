@@ -106,3 +106,22 @@ def hls_select(image, thresh=None):
     binary[(S <= thresh[0]) | (S > thresh[1])] = 1
     # 3) Return a binary image of threshold result
     return binary
+
+def LUV_select(image, thresh=None):
+    """
+    1) Convert an image to HLS color space
+    2) If thresh is provided,
+       apply a threshold to the S channel using the tuple thresh
+    
+    Returns a binary image or the saturation channel.
+    """
+    # 1) Convert to LUV color space
+    LUV = cv2.cvtColor(image, cv2.COLOR_BGR2LUV)
+    V = LUV[:,:,2]
+    if thresh == None:
+        return V
+    # 2) Apply a threshold to the V channel
+    binary = np.zeros_like(V)
+    binary[(V <= thresh[0]) | (V > thresh[1])] = 1
+    # 3) Return a binary image of threshold result
+    return binary
