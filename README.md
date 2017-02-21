@@ -1,3 +1,5 @@
+I just used this file so that I could use Jupyter's markdown preview.
+
 **Advanced Lane Finding Project**
 
 The goals / steps of this project are the following:
@@ -19,7 +21,7 @@ The goals / steps of this project are the following:
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Advanced-Lane-Lines/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
 
-You're reading it!
+You're reading it!  Most of the code is in the `advanced_lane_finding.ipynb`.  
 ### Camera Calibration
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
@@ -122,8 +124,7 @@ The sliding window method follows these steps:
 3. Find the rectangle with the most activated pixels in each rectangular column of the image.
 4. Add that rectangle to an array.
 5. Fit a second order polynomial to the pixel positions derived from the array of rectangles.
-
-I didn't have make any changes to Udacity's given implementation to get it to work.
+6. Repeat steps 3-5 for each new frame using the base search location from the first frame.
 
 Here is the result of the method applied to the binary image:
 The green boxes represent the rectangles bounding the lane line at each column.
